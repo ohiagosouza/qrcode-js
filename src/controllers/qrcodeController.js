@@ -9,8 +9,7 @@ const qrController = {
         return res.status(400).json({ error: "Texto para gerar o QR não fornecido" });
       } else {
         const qrCode = await qrService.generateQRCode(data);
-        console.log(qrCode);
-        res.sendStatus(200);
+        res.sendStatus(200).json(qrCode);
       }
     } catch (error) {
       console.log("Erro ao gerar QR", error);
